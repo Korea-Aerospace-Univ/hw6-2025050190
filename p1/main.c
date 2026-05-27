@@ -3,28 +3,28 @@
 int main()
 {
     char x[10] = {};
-    int count = 0, flag = 0;
-    char ch;
+    int count = 0, maxCount = 0;
+    char ch = '\0';
 
     for (char *p = x; p < x + 10; p++)
         scanf("%c", p);
 
     for (char *p = x; p < x + 10; p++) {
 
-        flag = 0;
+        count = 0;
         for (char *q = x; q < x + 10; q++) {
             if (*p == *q) {
-                flag ++;
+                count ++;
 
-                if (count < flag) {
-                    count = flag;
+                if (maxCount < count) {
+                    maxCount = count;
                     ch = *p;
                 }
             }
         }
     }
 
-    printf("%c %d", ch, count);
+    printf("%c %d", ch, maxCount);
 
     return 0;
 }
